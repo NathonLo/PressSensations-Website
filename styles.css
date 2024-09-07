@@ -291,6 +291,7 @@
     max-width: 20vw;
     height: 20vh;
     box-shadow: 5px 5px 10px;
+    margin: 5px;
 }
 
 /* Mobile Response */
@@ -464,9 +465,23 @@ div.gallery #nails3 {
     opacity: 1;
 }
 
+@media screen and (min-width: 1440px) {
+    div.gallery {
+        width: 300px;
+        display: flex;
+        justify-content: space-between
+    }
+
+    #nails1,
+    #nails2,
+    #nails3 {
+        width: 25vw;
+    }
+}
+
 @media screen and (max-width: 1440px) {
     div.gallery {
-        width: 30vw;
+        width: 29vw;
         display: flex;
         justify-content: space-between;
     }
@@ -691,16 +706,54 @@ div.gallery #nails3 {
     padding: 300px 150px 0 150px;
 }
 
+@import "https://unpkg.com/open-props";
+@import "https://unpkglcom/open-props/normalize.min.css";
+
 .addons__container {
+    --_spacer: var(--size-3);
     display: grid;
+    gap: var(--_spacer);
     grid-auto-flow: column;
+    grid-auto-columns: 20%;
+
+    padding: 0 var(--_spacer) var(--_spacer) var(--_spacer);
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+.addon {
+    display: grid;
+    gap: var(--_spacer);
+    padding: var(--size-3);
+    background: var(--surface-2);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-5)
+}
+
+.addon > img {
+    inline-size: 100%;
+    aspect-ratio: 9 / 9;
+    object-fit: cover;
 }
 
 @media screen and (max-width: 1440px) {
     #addon1,
     #addon2,
     #addon3 {
-        width: 80%;
+        width: 300%;
+    }
+
+    .addons {
+        padding-top: 70rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #addon1,
+    #addon2,
+    #addon3 {
+        width: 300%;
     }
 
     .addons {
